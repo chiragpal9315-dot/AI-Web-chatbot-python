@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gemini Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar: tools -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="logo">✦</span>
+        <div>
+          <h1>Gemini Chat</h1>
+          <small>{{ model }}</small>
+        </div>
+      </div>
+
+      <button class="btn primary" id="btn-new">+ New conversation</button>
+
+      <nav class="tools">
+        <button class="btn" id="btn-stats">📊 Statistics</button>
+        <button class="btn" id="btn-charts">📈 Charts</button>
+        <button class="btn" id="btn-models">🧩 Models</button>
+        <button class="btn" id="btn-theme">🌓 Toggle theme</button>
+      </nav>
+    </aside>
+
+    <!-- Main chat area -->
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn menu" id="btn-menu" aria-label="Menu">☰</button>
+        <h2>AI Study Assistant</h2>
+      </header>
+
+      <section class="messages" id="messages" aria-live="polite">
+        <div class="welcome" id="welcome">
+          <div class="logo big">✦</div>
+          <h3>How can I help you today?</h3>
+          <p>Ask me anything. I answer in simple English.</p>
+          <div class="chips">
+            <button class="chip">Explain photosynthesis</button>
+            <button class="chip">What is a prime number?</button>
+            <button class="chip">Give me a study tip</button>
+          </div>
+        </div>
+      </section>
+
+      <form class="composer" id="form" autocomplete="off">
+        <textarea id="input" rows="1" placeholder="Type your question… (Enter to send, Shift+Enter for new line)"></textarea>
+        <button class="send" id="send" type="submit" aria-label="Send">➤</button>
+      </form>
+    </main>
+  </div>
+
+  <!-- Modal used for stats / charts / models -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3 id="modal-title"></h3>
+        <button class="icon-btn" id="modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

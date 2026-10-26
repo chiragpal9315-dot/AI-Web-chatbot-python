@@ -1,0 +1,7 @@
+google-genai
+python-dotenv
+pandas
+numpy
+matplotlib
+seaborn
+flask
